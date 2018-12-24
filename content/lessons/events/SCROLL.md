@@ -43,18 +43,18 @@ The one thing to call out is the `contentSize` and the `contentOffset`. The `con
 As an example lets say you want to change the background color of a view on scroll. 
 
 ```js
-var SampleApp = React.createClass({
-  componentWillMount: function() {
+class SampleApp extends Component {
+  componentWillMount() {
     this._animatedValue = new Animated.Value(0);
   },
-  render: function() {
-    var interpolatedColor = this._animatedValue.interpolate({
+  render() {
+    const interpolatedColor = this._animatedValue.interpolate({
       inputRange: [0, 5000],
       outputRange: ['rgba(255,255,255,1)', 'rgba(51,156,177, 1)'],
       extrapolate: 'clamp'
     });
 
-    var event = Animated.event([
+    const event = Animated.event([
       {
         nativeEvent: { 
           contentOffset: {
@@ -72,7 +72,7 @@ var SampleApp = React.createClass({
       </View>
     );
   }
-});
+};
 ```
 
 We setup our `_animatedValue` and create our `interpolate` that spans the range of our content. In our case we've defined it as `5000`, so this is slightly impracticle. But that's what `extrapolation` is for! In our case we'll clamp it but it might make sense to leave it as the default `extend` here.

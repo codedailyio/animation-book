@@ -12,29 +12,29 @@ type: "lesson"
 ![Simple Timing Move](../images/SimpleTimingMove.gif)
 
 
-```
-var React = require('react-native');
+```js
+import React, { Component } from "react";
 
-var {
+import {
   AppRegistry,
   StyleSheet,
   View,
   Animated
-} = React;
+} from "react-native";
 
-var SampleApp = React.createClass({
-  componentWillMount: function() {
+class SampleApp extends Component {
+  componentWillMount() {
     this._animatedValue = new Animated.Value(0);
-  },
+  }
 
-  componentDidMount: function() {
+  componentDidMount () {
     Animated.timing(this._animatedValue, {
         toValue: 300,
         duration: 500
     }).start();
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <View style={styles.container}>
        <Animated.View 
@@ -43,9 +43,9 @@ var SampleApp = React.createClass({
       </View>
     );
   }
-});
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1
   },

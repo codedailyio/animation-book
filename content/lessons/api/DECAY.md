@@ -40,7 +40,7 @@ What does it look like in a real life example? Well thanks to Brent Vatne you ca
 
       onPanResponderRelease: (e, {vx, vy}) => {
         this.state.pan.flattenOffset();
-        var velocity;
+        let velocity;
 
         if (vx >= 0) {
           velocity = clamp(vx, 3, 5);

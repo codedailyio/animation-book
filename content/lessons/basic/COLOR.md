@@ -17,29 +17,29 @@ We'll do this animation 2 different ways. One just the color, the other is inter
 
 
 ```js
-import React from "react";
+import React, { Component } from "react";
 import {
   AppRegistry,
   StyleSheet,
   Text,
   View,
   Animated
-} = "react-native";
+} from "react-native";
 
-var SampleApp = React.createClass({
+class SampleApp extends Component {
   
-  componentWillMount: function() {
+  componentWillMount() {
     this._animatedValue = new Animated.Value(0);
-  },
-  componentDidMount: function() {
+  }
+  componentDidMount() {
     Animated.timing(this._animatedValue, {
         toValue: 100,
         duration: 3000
     }).start();    
-  },
-  render: function() {
+  }
+  render() {
     
-    var interpolatedColorAnimation = this._animatedValue.interpolate({
+    const interpolatedColorAnimation = this._animatedValue.interpolate({
     	inputRange: [0, 100],
       outputRange: ['rgba(255,255,255, 1)', 'rgba(51,156,177, 1)']
     });
@@ -52,9 +52,9 @@ var SampleApp = React.createClass({
       </View>
     );
   }
-});
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1
   },
@@ -66,8 +66,6 @@ var styles = StyleSheet.create({
     height: 100
   }
 });
-
-AppRegistry.registerComponent('SampleApp', () => SampleApp);
 
 ```
 

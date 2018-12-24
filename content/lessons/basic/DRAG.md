@@ -17,9 +17,10 @@ Alright, we learned about moving squares, interpolating colors, interpolating on
 The main concept here is the drag, but we'll see some usage of `Dimensions` which helps us get the device dimensions so we can adjust our interpolations to the draggable areas.
 
 
-```
-var React = require('react-native');
-var {
+```js
+import React, { Component } from "react";
+
+import {
   AppRegistry,
   StyleSheet,
   Text,
@@ -27,16 +28,16 @@ var {
   PanResponder,
   Animated,
   Dimensions
-} = React;
+} from "react-native";
 
-var {
+const {
   height: deviceHeight,
   width: deviceWidth
 } = Dimensions.get('window');
 
-var SampleApp = React.createClass({
+class SampleApp extends Component {
   
-  componentWillMount: function() {
+  componentWillMount() {
     this._animatedValue = new Animated.ValueXY()
     this._value = {x: 0, y: 0}
     
@@ -55,16 +56,16 @@ var SampleApp = React.createClass({
           this._animatedValue.flattenOffset(); // Flatten the offset so it resets the default positioning
         }
       });
-  },
-  render: function() {
+  }
 
-    var interpolatedColorAnimation = this._animatedValue.y.interpolate({
+  render() {
+    const interpolatedColorAnimation = this._animatedValue.y.interpolate({
       inputRange: [0, deviceHeight - 100],
       outputRange: ['rgba(229,27,66,1)', 'rgba(90,146,253,1)'],
       extrapolate: 'clamp'
     });
 
-    var interpolatedRotateAnimation = this._animatedValue.x.interpolate({
+    const interpolatedRotateAnimation = this._animatedValue.x.interpolate({
       inputRange: [0, deviceWidth/2, deviceWidth],
       outputRange: ['-360deg', '0deg', '360deg']
     });
@@ -88,9 +89,9 @@ var SampleApp = React.createClass({
       </View>
     );
   }
-});
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
@@ -101,8 +102,5 @@ var styles = StyleSheet.create({
     height: 100
   }
 });
-
-
-AppRegistry.registerComponent('SampleApp', () => SampleApp);
 
 ```

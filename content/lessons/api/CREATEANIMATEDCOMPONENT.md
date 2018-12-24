@@ -13,18 +13,15 @@ type: "lesson"
 Example ScrollView
 
 ```js
-var AnimatedScrollView = Animated.createAnimatedComponent(ScrollView)
+const AnimatedScrollView = Animated.createAnimatedComponent(ScrollView)
 ```
 
-It will work on any View, even `ReactART` views.
+It will work on any View, even `react-native-svg` views.
 
 ```js
 
-var ReactART = require('ReactNativeART');
+import { Path } from "react-native-svg";
 
-var {
-	Shape
-} = ReactArt;
 
-var AnimatedShape = Animated.createAnimatedComponent(Shape);
+const AnimatedPath = Animated.createAnimatedComponent(Path);
 ```

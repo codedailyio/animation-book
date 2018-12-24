@@ -16,10 +16,8 @@ A few additional helper methods are added that make it easy to pass appropriate 
 You create them just the same as you would `new Animated.Value()`:
 
 ```js
-getInitialState: function() {
-    return {
-        someAnimatedValue: new Animate.ValueXY()
-    }
+state = {
+    someAnimatedValue: new Animate.ValueXY()
 }
 
 constructor(props) {

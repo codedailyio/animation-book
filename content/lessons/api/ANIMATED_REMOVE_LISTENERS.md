@@ -12,7 +12,7 @@ When you need to remove listening on an animation, you can call `removeListener`
 
 this._animatedValue = new Animated.Value(0);
 
-var animatedListenerId = this._animatedValue.addListener(({value}) => this._value = value);
+const animatedListenerId = this._animatedValue.addListener(({value}) => this._value = value);
 
 this._animatedValue.removeListener(animatedListenerId);
 ```

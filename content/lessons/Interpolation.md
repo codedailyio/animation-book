@@ -70,7 +70,7 @@ That may seem confusing so let me explain. Take this as an example
 ```js
 this._animatedValue = new Animated.Value(0);
 
-var scaleAndFlipOnReverse = this._animatedValue.y.interpolate({
+const scaleAndFlipOnReverse = this._animatedValue.y.interpolate({
   inputRange: [0, deviceHeight],
   outputRange: [.1, 2],
   extrapolateLeft: 'extend',
@@ -97,7 +97,7 @@ Well what that will do is bypass everything! Easings, etc. Once it hits the boun
 ```js
 this._animatedValue = new Animated.Value(0);
 
-var scaleAndFlipOnReverse = this._animatedValue.y.interpolate({
+const scaleAndFlipOnReverse = this._animatedValue.y.interpolate({
   inputRange: [0, deviceHeight],
   outputRange: [.1, 2],
   extrapolateLeft: 'identity',

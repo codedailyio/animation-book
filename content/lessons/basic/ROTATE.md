@@ -11,30 +11,31 @@ type: "lesson"
 
 ![Simple Rotate Animation](../images/SimpleRotateAnimation.gif)
 
-```
-var React = require('react-native');
-var {
+```js
+import React, { Component } from "react";
+import {
   AppRegistry,
   StyleSheet,
   Text,
   View,
   Animated
-} = React;
+} from "react-native";
 
-var SampleApp = React.createClass({
+class SampleApp extends Component {
   
-  componentWillMount: function() {
+  componentWillMount () {
     this._animatedValue = new Animated.Value(0);
   },
-  componentDidMount: function() {
+  componentDidMount () {
     Animated.timing(this._animatedValue, {
         toValue: 100,
         duration: 3000
     }).start(); 
-  },
-  render: function() {
+  }
+  
+  render () {
     
-    var interpolatedRotateAnimation = this._animatedValue.interpolate({
+    const interpolatedRotateAnimation = this._animatedValue.interpolate({
     	inputRange: [0, 100],
       outputRange: ['0deg', '360deg']
     });
@@ -47,9 +48,9 @@ var SampleApp = React.createClass({
       </View>
     );
   }
-});
+};
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1
   },
@@ -63,8 +64,6 @@ var styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('SampleApp', () => SampleApp);
-
 ```
 
 ## Merge them all together
@@ -73,15 +72,15 @@ AppRegistry.registerComponent('SampleApp', () => SampleApp);
 
 We just need to adjust our render function to bring all the code together
 
-```
-  render: function() {
+```js
+  render() {
     
-    var interpolatedRotateAnimation = this._animatedValue.interpolate({
+    const interpolatedRotateAnimation = this._animatedValue.interpolate({
     	inputRange: [0, 100],
       outputRange: ['0deg', '360deg']
     });
     
-    var interpolatedColorAnimation = this._animatedValue.interpolate({
+    const interpolatedColorAnimation = this._animatedValue.interpolate({
     	inputRange: [0, 100],
       outputRange: ['rgba(255,255,255, 1)', 'rgba(51,156,177, 1)']
     });

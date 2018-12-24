@@ -29,7 +29,7 @@ For Example:
 ```js
 this._animatedValue = new Animated.Value(0);
 
-var _backgroundColor = this._animatedValue.interpolate({
+const _backgroundColor = this._animatedValue.interpolate({
 	inputRange: [0, 150],
 	outputRange: ['rgba(255,255,255,1)', 'rgba(0,0,0,1)']
 });
