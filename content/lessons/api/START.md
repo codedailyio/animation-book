@@ -8,7 +8,7 @@ type: "lesson"
 
 # start
 
-`start` will cause an animation to trigger. It takes a callback that will be called upon completion of the the animation.
+`start` will cause an animation to trigger. It takes a callback that will be called upon completion of the animation.
 
 This will be how we trigger animations on any `Animated.timing`, `Animated.decay`, `Animated.spring`, as well as our animation combinators like `Animated.parallel`, `Animated.sequence` and `Animated.stagger`.
 
